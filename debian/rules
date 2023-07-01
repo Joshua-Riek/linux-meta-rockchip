@@ -1,0 +1,37 @@
+#!/usr/bin/make -f
+
+include /usr/share/dpkg/architecture.mk
+include /usr/share/dpkg/pkg-info.mk
+
+KERNEL_VERSION := $(shell dpkg-parsechangelog -SVersion -l debian/changelog)
+
+linux-rockchip linux-image-rockchip linux-headers-rockchip linux-image-5.10.160-rockchip linux-headers-5.10.160-rockchip: 
+	@mkdir -m 755 -p "debian/tmp/$@/DEBIAN"
+	@mkdir -p "debian/tmp/$@/usr/share/doc/$@"
+	@cp debian/tmp/control "debian/tmp/$@/DEBIAN"
+	@cp debian/copyright "debian/tmp/$@/usr/share/doc/$@/"
+	@cp debian/changelog "debian/tmp/$@/usr/share/doc/$@/changelog.Debian"
+	@gzip -f -9 "debian/tmp/$@/usr/share/doc/$@/changelog.Debian"
+	@sh -c "cd 'debian/tmp/$@'; find . -type f ! -path './DEBIAN/*' -printf '%P\0' | xargs -r0 md5sum > DEBIAN/md5sums"
+
+	@chown -R root:root "debian/tmp/$@"
+	@chmod -R go-w "debian/tmp/$@"
+	@chmod -R a+rX "debian/tmp/$@"
+
+	@dpkg-gencontrol -c"debian/tmp/control" -p$@ -P"debian/tmp/$@"
+	@dpkg --build "debian/tmp/$@" ..
+
+build-indep:
+build-arch: 
+	@mkdir -p debian/tmp && cp debian/control debian/tmp/control
+	@sed -i "s/\$${kernel-version}/$(KERNEL_VERSION)/g" debian/tmp/control
+
+build: build-arch
+
+binary-indep:
+binary-arch: build-arch linux-rockchip linux-image-rockchip linux-headers-rockchip linux-image-5.10.160-rockchip linux-headers-5.10.160-rockchip
+
+clean:
+	@rm -rf debian/tmp debian/files
+
+binary: binary-arch
