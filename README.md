@@ -1,1 +1,0 @@
-# linux-meta-rockchip

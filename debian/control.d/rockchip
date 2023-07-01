@@ -1,0 +1,36 @@
+Package: linux-headers-rockchip${variant:suffix}
+Architecture: arm64
+Section: kernel
+Depends: ${misc:Depends}, linux-headers-${kernel-abi-version}-rockchip
+Description: Rockchip Linux kernel headers
+ This package will always depend on the latest rockchip kernel headers
+ available.
+
+Package: linux-image-rockchip${variant:suffix}
+Architecture: arm64
+Section: kernel
+Provides: ${dkms:zfs-modules}
+Depends: ${misc:Depends}, linux-image-${kernel-abi-version}-rockchip, linux-modules-extra-${kernel-abi-version}-rockchip, linux-firmware
+Recommends: thermald
+Description: Rockchip Linux kernel image
+ This package will always depend on the latest rockchip kernel image
+ available.
+
+Package: linux-tools-rockchip${variant:suffix}
+Architecture: arm64
+Section: kernel
+Provides: linux-tools
+Depends: ${misc:Depends}, linux-tools-${kernel-abi-version}-rockchip
+Description: Rockchip Linux kernel tools
+ This package will always depend on the latest rockchip kernel tools
+ available.
+
+Package: linux-rockchip${variant:suffix}
+Architecture: arm64
+Section: kernel
+Provides: ${test:provides-full-rockchip} ${test:provides-full-preferred}
+Depends: ${misc:Depends}, linux-image-rockchip${variant:suffix} (= ${binary:Version}), linux-headers-rockchip${variant:suffix} (= ${binary:Version})
+Description: Complete Rockchip Linux kernel and headers
+ This package will always depend on the latest complete rockchip Linux kernel
+ and headers.
+

@@ -1,0 +1,11 @@
+Source: @SRCPKGNAME@
+Section: devel
+Priority: optional
+Maintainer: Joshua Riek <jjriek@verizon.net>
+Standards-Version: 3.9.8
+Build-Depends: dpkg (>= 1.13.19), debhelper (>= 9), gawk, kmod,
+Build-Depends-Arch:
+ @KERNEL_SOURCE@-headers-@KERNEL_ABI_VERSION@,
+ linux-headers-@KERNEL_ABI_VERSION@-rockchip,
+ linux-modules-@KERNEL_ABI_VERSION@-rockchip,
+Vcs-Git: https://github.com/Joshua-Riek/linux-rockchip
