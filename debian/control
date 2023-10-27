@@ -1,20 +1,20 @@
-Source: linux-meta-rockchip
+Source: linux-meta-rockchip-5.10
 Section: kernel
 Priority: optional
 Standards-Version: 3.9.8
 Build-Depends: dpkg (>= 1.13.19), debhelper (>= 9), gawk
 Maintainer: Joshua Riek <jjriek@verizon.net>
 
-Package: linux-rockchip
-Depends: linux-image-rockchip (= ${kernel-version}), linux-headers-rockchip (= ${kernel-version})
+Package: linux-rockchip-5.10
+Depends: linux-image-rockchip-5.10 (= ${kernel-version}-${release-num}), linux-headers-rockchip-5.10 (= ${kernel-version}-${release-num})
 Architecture: any
 Section: kernel
 Priority: optional
-Description: Complete Rockchip Linux kernel and headers
+Description: Rockchip Linux kernel and headers
  This package will always depend on the latest complete rockchip Linux kernel
  and headers.
 
-Package: linux-image-rockchip
+Package: linux-image-rockchip-5.10
 Depends: linux-image-${kernel-version}-rockchip
 Architecture: any
 Section: kernel
@@ -23,26 +23,8 @@ Description: Rockchip Linux kernel image
  This package will always depend on the latest rockchip kernel image
  available.
 
-Package: linux-headers-rockchip
+Package: linux-headers-rockchip-5.10
 Depends: linux-headers-${kernel-version}-rockchip
-Architecture: any
-Section: kernel
-Priority: optional
-Description: Rockchip Linux kernel headers
- This package will always depend on the latest rockchip kernel headers
- available.
-
-Package: linux-image-5.10.160-rockchip
-Depends: linux-image-rockchip
-Architecture: any
-Section: kernel
-Priority: optional
-Description: Rockchip Linux kernel image
- This package will always depend on the latest rockchip kernel image
- available.
-
-Package: linux-headers-5.10.160-rockchip
-Depends: linux-headers-rockchip
 Architecture: any
 Section: kernel
 Priority: optional

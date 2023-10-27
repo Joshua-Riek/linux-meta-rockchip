@@ -3,9 +3,10 @@
 include /usr/share/dpkg/architecture.mk
 include /usr/share/dpkg/pkg-info.mk
 
-KERNEL_VERSION := $(shell dpkg-parsechangelog -SVersion -l debian/changelog)
+KERNEL_VERSION := $(shell dpkg-parsechangelog -SVersion -l debian/changelog | cut -f1 -d "-")
+RELEASE_NUM := $(shell dpkg-parsechangelog -SVersion -l debian/changelog | cut -d "-" -f2)
 
-linux-rockchip linux-image-rockchip linux-headers-rockchip linux-image-5.10.160-rockchip linux-headers-5.10.160-rockchip: 
+linux-rockchip-5.10 linux-image-rockchip-5.10 linux-headers-rockchip-5.10:
 	@mkdir -m 755 -p "debian/tmp/$@/DEBIAN"
 	@mkdir -p "debian/tmp/$@/usr/share/doc/$@"
 	@cp debian/tmp/control "debian/tmp/$@/DEBIAN"
@@ -25,11 +26,12 @@ build-indep:
 build-arch: 
 	@mkdir -p debian/tmp && cp debian/control debian/tmp/control
 	@sed -i "s/\$${kernel-version}/$(KERNEL_VERSION)/g" debian/tmp/control
+	@sed -i "s/\$${release-num}/$(RELEASE_NUM)/g" debian/tmp/control
 
 build: build-arch
 
 binary-indep:
-binary-arch: build-arch linux-rockchip linux-image-rockchip linux-headers-rockchip linux-image-5.10.160-rockchip linux-headers-5.10.160-rockchip
+binary-arch: build-arch linux-rockchip-5.10 linux-image-rockchip-5.10 linux-headers-rockchip-5.10
 
 clean:
 	@rm -rf debian/tmp debian/files
