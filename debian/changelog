@@ -1,3 +1,9 @@
+linux-meta-rockchip-5.10 (5.10.160-24) jammy; urgency=medium
+
+  * Bump version 5.10.160-24
+
+ -- Joshua Riek <jjriek@verizon.net>  Wed, 06 Dec 2023 16:21:08 -0500
+
 linux-meta-rockchip-5.10 (5.10.160-23) jammy; urgency=medium
 
   * Bump version 5.10.160-23
