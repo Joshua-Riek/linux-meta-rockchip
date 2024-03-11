@@ -1,0 +1,5 @@
+linux-meta-rockchip (5.10.0.1001.1) jammy; urgency=medium
+
+  * Initial release
+
+ -- Joshua Riek <jjriek@verizon.net>  Mon, 29 Apr 2024 12:24:23 -0400
