@@ -1,0 +1,49 @@
+Source: linux-meta-rockchip
+Section: devel
+Priority: optional
+Maintainer: Joshua Riek <jjriek@verizon.net>
+Standards-Version: 3.9.8
+Build-Depends: dpkg (>= 1.13.19), debhelper (>= 9), gawk, kmod,
+Build-Depends-Arch:
+ linux-rockchip-headers-6.1.0-1001,
+ linux-headers-6.1.0-1001-rockchip,
+ linux-modules-6.1.0-1001-rockchip,
+Vcs-Git: https://github.com/Joshua-Riek/linux-rockchip
+
+Package: linux-headers-rockchip
+Architecture: arm64
+Section: kernel
+Depends: ${misc:Depends}, linux-headers-${kernel-abi-version}-rockchip
+Description: Rockchip Linux kernel headers
+ This package will always depend on the latest rockchip kernel headers
+ available.
+
+Package: linux-image-rockchip
+Architecture: arm64
+Section: kernel
+Provides: ${dkms:zfs-modules}
+Depends: ${misc:Depends}, linux-image-${kernel-abi-version}-rockchip, linux-modules-extra-${kernel-abi-version}-rockchip, linux-firmware
+Recommends: thermald
+Description: Rockchip Linux kernel image
+ This package will always depend on the latest rockchip kernel image
+ available.
+
+Package: linux-tools-rockchip
+Architecture: arm64
+Section: kernel
+Provides: linux-tools
+Depends: ${misc:Depends}, linux-tools-${kernel-abi-version}-rockchip
+Description: Rockchip Linux kernel tools
+ This package will always depend on the latest rockchip kernel tools
+ available.
+
+Package: linux-rockchip
+Architecture: arm64
+Section: kernel
+Provides: kernel-testing--linux-rockchip--full--rockchip, kernel-testing--linux-rockchip--full--preferred,
+Depends: ${misc:Depends}, linux-image-rockchip (= ${binary:Version}), linux-headers-rockchip (= ${binary:Version})
+Description: Complete Rockchip Linux kernel and headers
+ This package will always depend on the latest complete rockchip Linux kernel
+ and headers.
+
+
