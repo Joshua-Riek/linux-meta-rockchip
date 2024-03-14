@@ -1,3 +1,9 @@
+linux-meta-rockchip (6.1.0.1002.2) noble; urgency=medium
+
+  * Bump ABI
+
+ -- Joshua Riek <jjriek@verizon.net>  Wed, 13 Mar 2024 20:00:12 -0400
+
 linux-meta-rockchip (6.1.0.1001.1) noble; urgency=medium
 
   * Initial release
