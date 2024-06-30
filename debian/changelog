@@ -1,3 +1,9 @@
+linux-meta-rockchip (5.10.0.1009.9) jammy; urgency=medium
+
+  * Bump ABI
+
+ -- Joshua Riek <jjriek@verizon.net>  Sun, 30 Jun 2024 16:57:13 -0400
+
 linux-meta-rockchip (5.10.0.1008.8) jammy; urgency=medium
 
   * Bump ABI
