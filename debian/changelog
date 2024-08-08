@@ -1,3 +1,9 @@
+linux-meta-rockchip (6.11.0.1001.1) oracular; urgency=medium
+
+  * Bump ABI
+
+ -- Joshua Riek <jjriek@verizon.net>  Thu, 08 Aug 2024 18:45:59 -0400
+
 linux-meta-rockchip (6.1.0.1021.21) noble; urgency=medium
 
   * Bump ABI
