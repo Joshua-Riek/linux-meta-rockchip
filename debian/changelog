@@ -1,3 +1,10 @@
+linux-meta-rockchip (6.11.0.1003.3) oracular; urgency=medium
+
+  * Bump ABI
+  * Update dkms versions
+
+ -- Joshua Riek <jjriek@verizon.net>  Thu, 08 Aug 2024 18:48:39 -0400
+
 linux-meta-rockchip (6.11.0.1002.2) oracular; urgency=medium
 
   * Bump ABI
