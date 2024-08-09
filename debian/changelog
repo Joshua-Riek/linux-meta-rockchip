@@ -1,3 +1,10 @@
+linux-meta-rockchip (6.11.0.1004.4) oracular; urgency=medium
+
+  * Bump ABI
+  * UBUNTU: Remove zfs dkms
+
+ -- Joshua Riek <jjriek@verizon.net>  Thu, 08 Aug 2024 21:47:28 -0400
+
 linux-meta-rockchip (6.11.0.1003.3) oracular; urgency=medium
 
   * Bump ABI
