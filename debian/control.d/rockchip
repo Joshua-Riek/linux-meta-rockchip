@@ -9,7 +9,6 @@ Description: Rockchip Linux kernel headers
 Package: linux-image-rockchip${variant:suffix}
 Architecture: arm64
 Section: kernel
-Provides: ${dkms:zfs-modules}
 Depends: ${misc:Depends}, linux-image-${kernel-abi-version}-rockchip, linux-modules-extra-${kernel-abi-version}-rockchip, linux-firmware
 Recommends: thermald
 Description: Rockchip Linux kernel image
